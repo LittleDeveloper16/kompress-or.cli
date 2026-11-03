@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kompressor-cli"
+version = "1.0.0"
+description = "KOMPRESS-OR.CLI - offline-first image compression and optimization toolkit"
+readme = "README.md"
+requires-python = ">=3.14"
+license = "MIT"
+authors = [{ name = "KOMPRESS-OR.CLI contributors" }]
+keywords = ["image", "compression", "cli", "jpeg", "png", "webp", "avif"]
+dependencies = [
+    "Pillow>=10.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+kompressor = "kompressor.main:main"
+kompress-or = "kompressor.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
